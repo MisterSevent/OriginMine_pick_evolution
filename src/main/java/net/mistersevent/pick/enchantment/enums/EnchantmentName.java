@@ -3,9 +3,43 @@ package net.mistersevent.pick.enchantment.enums;
 import org.bukkit.enchantments.Enchantment;
 
 public enum EnchantmentName {
-    DIG_SPEED("Eficiência"),
-    LOOT_BONUS_BLOCKS("Fortuna");
-
+    ARROW_DAMAGE("Força"),
+    ARROW_FIRE("Chama"),
+    ARROW_INFINITE("Infinidade"),
+    ARROW_KNOCKBACK("Impacto"),
+    BINDING_CURSE("Maldição da ligação"),
+    CHANNELING("Condutividade"),
+    DAMAGE_ALL("Afiação"),
+    DAMAGE_ARTHROPODS("Ruína dos artrópodes"),
+    DAMAGE_UNDEAD("Julgamento"),
+    DEPTH_STRIDER("Passos profundos"),
+    DIG_SPEED("Eficiencia"),
+    DURABILITY("Inquebrável"),
+    FIRE_ASPECT("Aspecto flamejante"),
+    FROST_WALKER("Passos gelados"),
+    IMPALING("Penetração"),
+    KNOCKBACK("Repulsão"),
+    LOOT_BONUS_BLOCKS("Fortuna"),
+    LOOT_BONUS_MOBS("Pilhagem"),
+    LOYALTY("Lealdade"),
+    LUCK("Sorte do mar"),
+    LURE("Isca"),
+    MENDING("Remendo"),
+    MULTISHOT("Tiro múltiplo"),
+    OXYGEN("Respiração"),
+    PIERCING("Perfuração"),
+    PROTECTION_ENVIRONMENTAL("Proteção"),
+    PROTECTION_EXPLOSIONS("Proteção contra explosões"),
+    PROTECTION_FALL("Peso pena"),
+    PROTECTION_FIRE("Proteção contra o fogo"),
+    PROTECTION_PROJECTILE("Proteção contra projéteis"),
+    QUICK_CHARGE("Carga rápida"),
+    RIPTIDE("Correnteza"),
+    SILK_TOUCH("Toque suave"),
+    SWEEPING_EDGE("Alcance"),
+    THORNS("Espinhos"),
+    VANISHING_CURSE("Maldição do desaparecimento"),
+    WATER_WORKER("Afinidade aquática");
     private String name;
 
     private EnchantmentName(String name) {

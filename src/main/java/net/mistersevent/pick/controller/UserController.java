@@ -17,8 +17,8 @@ public class UserController {
     private final UserCache cache;
 
     public UserController(Main plugin) {
-        this.service = new ThreadPoolExecutor(2, 4, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.plugin = plugin;
+        this.service = new ThreadPoolExecutor(2, 4, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.cache = plugin.getUserCache();
     }
 

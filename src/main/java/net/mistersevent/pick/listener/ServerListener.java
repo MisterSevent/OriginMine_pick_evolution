@@ -19,7 +19,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -80,7 +79,7 @@ public class ServerListener implements Listener {
 
     }
 
-    private boolean addEnchantment(UserModel userModel, Enchantment type) {
+    private boolean addEnchantment(UserModel userModel, EnchantmentName type) {
 
         Player p = Bukkit.getPlayer(userModel.getId());
         EnchantmentAttributes attributes = Main.getInstance().getAttributesCache().getByType(type);
@@ -96,7 +95,7 @@ public class ServerListener implements Listener {
     private void setEnchantment(UserModel userModel) {
 
         Iterator var1 = Main.getInstance().getAttributesCache().getElements().iterator();
-        List<Pair<Enchantment, Double>> list = new ArrayList<>();
+        List<Pair<EnchantmentName, Double>> list = new ArrayList<>();
         Player player = Bukkit.getPlayer(userModel.getName());
         while (var1.hasNext()) {
             EnchantmentAttributes attributes = (EnchantmentAttributes) var1.next();
@@ -110,13 +109,12 @@ public class ServerListener implements Listener {
             player.sendMessage(Main.getInstance().getConfig().getString("pickaxe-dont-have-more-levels").replace("&", "§"));
             return;
         }
-
         EnumeratedDistribution e = new EnumeratedDistribution(list);
-        Enchantment encatamento = (Enchantment) e.sample();
+        EnchantmentName encatamento = (EnchantmentName) e.sample();
         addEnchantment(userModel, encatamento);
         player.sendMessage("");
         TextComponent level = new net.md_5.bungee.api.chat.TextComponent(Main.getInstance().getConfig().getString("pickaxe-level-up").replace("&", "§"));
-        level.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, (new ComponentBuilder("§7Encantamento: §b" + EnchantmentName.valueOf(encatamento))).create()));
+        level.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, (new ComponentBuilder("§7Encantamento: §b" + encatamento)).create()));
         player.spigot().sendMessage(level);
         player.sendMessage("");
     }

@@ -26,8 +26,8 @@ public class UserDao {
     }
 
     public void loadAll() {
-        try (final PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM `pick_users`;")) {
-            final ResultSet resultSet = statement.executeQuery();
+        try (PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM `pick_users`;")) {
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Main.getInstance().getUserCache().addElement(this.adapter.read(resultSet));
             }
@@ -38,7 +38,7 @@ public class UserDao {
     }
 
     public void insertOrUpdate(final UserModel model) {
-        try (final PreparedStatement statement = this.connection.prepareStatement("INSERT INTO `pick_users` VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE count=?, xp=?, enchantments=?;")) {
+        try (PreparedStatement statement = this.connection.prepareStatement("INSERT INTO `pick_users` VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE count=?, xp=?, enchantments=?;")) {
             this.adapter.write(statement, model);
             statement.executeUpdate();
         }

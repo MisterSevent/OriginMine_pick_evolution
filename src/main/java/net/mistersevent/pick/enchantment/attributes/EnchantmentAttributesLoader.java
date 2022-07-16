@@ -1,5 +1,6 @@
 package net.mistersevent.pick.enchantment.attributes;
 
+import net.mistersevent.pick.enchantment.enums.EnchantmentName;
 import net.mistersevent.pick.utils.Cache;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -14,7 +15,7 @@ public class EnchantmentAttributesLoader {
 
         while (var1.hasNext()) {
             String key = (String) var1.next();
-            Enchantment type = Enchantment.getByName(key);
+            EnchantmentName type = EnchantmentName.valueOf(key);
             int maxLevel = configuration.getInt("enchantments." + key + ".max_level");
             double chance = configuration.getDouble("enchantments." + key + ".chance");
             EnchantmentAttributes attributes = new EnchantmentAttributes(type, maxLevel, chance);

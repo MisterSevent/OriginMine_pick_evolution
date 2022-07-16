@@ -5,11 +5,11 @@ import net.mistersevent.pick.cache.UserCache;
 import net.mistersevent.pick.controller.UserController;
 import net.mistersevent.pick.dao.UserDao;
 import net.mistersevent.pick.enchantment.EnchantmentTool;
-import net.mistersevent.pick.enchantment.attributes.EnchantmentAttributes;
 import net.mistersevent.pick.enchantment.attributes.EnchantmentAttributesLoader;
 import net.mistersevent.pick.listener.PlayerListener;
 import net.mistersevent.pick.listener.ServerListener;
 import net.mistersevent.pick.model.UserModel;
+import net.mistersevent.pick.utils.Reflection;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,6 +32,7 @@ public final class Main extends JavaPlugin {
 
         saveDefaultConfig();
         instance = this;
+        new Reflection(this);
         this.userCache = new UserCache(this);
         this.attributesCache = new EnchantmentAttributesCache(this);
         this.enchantmentTool = new EnchantmentTool(this);

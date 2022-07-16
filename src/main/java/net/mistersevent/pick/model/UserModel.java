@@ -2,14 +2,12 @@ package net.mistersevent.pick.model;
 
 import net.mistersevent.pick.Main;
 import net.mistersevent.pick.enchantment.EnchantmentTool;
-import net.mistersevent.pick.enchantment.attributes.EnchantmentAttributes;
+import net.mistersevent.pick.enchantment.enums.EnchantmentName;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,18 +22,18 @@ public class UserModel {
 
     private double basePrice = Main.getInstance().getConfig().getDouble("xp-base-price");
 
-    private final Map<Enchantment, Integer> enchantments = new HashMap<>();
+    private final Map<EnchantmentName, Integer> enchantments = new HashMap<>();
 
     public UserModel(UUID id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getEnchantmentLevel(Enchantment type) {
+    public int getEnchantmentLevel(EnchantmentName type) {
         return (Integer) this.enchantments.getOrDefault(type, 0);
     }
 
-    public void addEnchantment(Enchantment type, int level) {
+    public void addEnchantment(EnchantmentName type, int level) {
         level += this.getEnchantmentLevel(type);
         this.enchantments.put(type, level);
         Player p = Bukkit.getPlayer(this.id);
@@ -70,8 +68,8 @@ public class UserModel {
         return count;
     }
 
-    public Map<Enchantment, Integer> getEnchantments() {
-        return enchantments;
+    public Map<EnchantmentName, Integer> getEnchantments() {
+        return this.enchantments;
     }
 
     public void setCount(double count) {

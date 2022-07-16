@@ -3,6 +3,8 @@ package net.mistersevent.pick.enchantment;
 import net.mistersevent.pick.Main;
 import net.mistersevent.pick.enchantment.enums.EnchantmentName;
 import net.mistersevent.pick.model.UserModel;
+import net.mistersevent.pick.utils.NBTTag;
+import net.mistersevent.pick.utils.Serialize;
 import net.mistersevent.pick.utils.Toolchain;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -15,6 +17,7 @@ import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EnchantmentTool {
@@ -29,6 +32,7 @@ public class EnchantmentTool {
     public ItemStack provideItem(UserModel userModel) {
         ItemStack itemStack = new ItemStack(Material.DIAMOND_PICKAXE);
         this.updateMeta(itemStack, userModel);
+        String serialized = Serialize.toBase64(itemStack);
         return itemStack;
     }
 
@@ -39,7 +43,7 @@ public class EnchantmentTool {
         List<String> lore = new ArrayList();
         lore.add("§7Inquebrável ∞");
         for (Enchantment value : Enchantment.values()) {
-            int level = userModel.getEnchantmentLevel(value);
+            int level = userModel.getEnchantmentLevel(EnchantmentName.valueOf(value));
             if (level > 0) {
                 lore.add("§7" + EnchantmentName.valueOf(value) + " " + Toolchain.formatWithoutReduce(level));
                 itemMeta.addEnchant(value, level, true);
@@ -59,7 +63,7 @@ public class EnchantmentTool {
         List<String> lore = new ArrayList();
         lore.add("§7Inquebrável ∞");
         for (Enchantment value : Enchantment.values()) {
-            int level = userModel.getEnchantmentLevel(value);
+            int level = userModel.getEnchantmentLevel(EnchantmentName.valueOf(value));
             if (level > 0) {
                 lore.add("§7" + value.getName() + " " + Toolchain.formatWithoutReduce(level));
             }
