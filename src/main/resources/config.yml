@@ -1,0 +1,28 @@
+database:
+  jdbcUrl: 'jdbc:mysql://200.9.154.72:3306/s2290_origin?characterEncoding=latin1'
+  username: 'u2290_wxfwfqPYCQ'
+  password: 'b5.X4Dv4Kg7+wrrnsIdIs^0E'
+
+
+xp-base-price: 220 #A cada 1 nível ira aumentar o xp nesta quantia LEVEL 1: 220 LEVEL 2: 440 LEVEL 3: 660
+
+enchantments:
+  DIG_SPEED:
+    max_level: 10
+    chance: 50.0
+  LOOT_BONUS_BLOCKS:
+    max_level: 5
+    chance: 10.0
+
+XP:
+  IRON: 10.0
+  GOLD: 30.0
+  COAL: 10.0
+  LAPIS: 10.0
+  DIAMOND: 20.0
+  REDSTONE: 10.0
+  EMERALD: 10.0
+
+pickaxe-dont-have-more-levels: "&cSua picareta chegou ao level máximo!"
+pickaxe-level-up: "&aSua picareta upou de nível, passe o mouse para ver o novo encatamento!"
+only-ores: "&cVocê só pode quebrar minerios!"

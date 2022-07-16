@@ -1,0 +1,3 @@
+name: pick-evolution
+version: '${project.version}'
+main: net.mistersevent.pick.Main
